@@ -1,0 +1,28 @@
+table{
+    width: 60%;
+   
+  }
+  .mat-form-field {
+    margin-right: 12px;
+  }
+
+.cont1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+  text-align: center;
+}
+
+mat-paginator{
+  width: 60%;
+    
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,0 +1,60 @@
+<mat-drawer-container fullscreen>
+    <mat-sidenav #sidenav>
+
+        <mat-toolbar>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            
+            <span>Panel de herramientas</span>
+        </mat-toolbar>
+
+        <mat-nav-list>
+
+            <a routerLink="./listadoCliente" mat-list-item>
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listar clientes</span>
+            </a>
+
+            <a routerLink="buscarCliente" mat-list-item>
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar Cliente</span>
+            </a>
+
+            <a routerLink="./agregarServicio" mat-list-item>
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Agregar Servicio</span>
+            </a>
+
+            <a routerLink="editar/:id" mat-list-item>
+                <mat-icon mat-list-icon>edit</mat-icon>
+                <span>Editar Servicio</span>
+            </a>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+
+    <mat-toolbar>
+        <img src="./assets/img/Captura.JPG" id="logo" width="100px" />
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 id="spanTitulo">  Panel de Administrador</h1>
+        
+        <span class="spacer" ></span>
+        <a routerLink="" mat-list-item>
+            <mat-icon mat-list-icon>notifications</mat-icon>
+        </a>
+        <a routerLink="/auth/login">
+        <button mat-button>Logout</button>
+        </a>
+    </mat-toolbar>
+
+    <div class="conatiner">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>
+<footer _ngcontent-jva-c48="" class="docs-footer"><div _ngcontent-jva-c48="" class="docs-footer-list"><div _ngcontent-jva-c48="" class="docs-footer-logo"><div _ngcontent-jva-c48="" class="footer-logo"><img _ngcontent-jva-c48="" src="../../../assets/img/homepage/angular-white-transparent.svg" alt="Angular icon" class="docs-footer-angular-logo"><span _ngcontent-jva-c48=""><a _ngcontent-jva-c48="" href="https://angular.io">Learn Angular</a></span></div></div><div _ngcontent-jva-c48="" class="docs-footer-version"><img _ngcontent-jva-c48="" src="../../../assets/img/angular-material-logo.svg" alt="Angular Material icon" class="angular-material-logo"><span _ngcontent-jva-c48="" class="version">Current Version: 12.0.1</span></div><div _ngcontent-jva-c48="" class="docs-footer-copyright"><div _ngcontent-jva-c48=""><span _ngcontent-jva-c48="">Powered by Google LLC ©2010-2021.</span><a _ngcontent-jva-c48="" href="https://github.com/angular/components/blob/master/LICENSE">Code licensed under an MIT-style License.</a><span _ngcontent-jva-c48="">Documentation licensed under CC BY 4.0.</span></div></div></div></footer>

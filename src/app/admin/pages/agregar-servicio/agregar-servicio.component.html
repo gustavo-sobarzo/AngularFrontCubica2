@@ -1,0 +1,24 @@
+
+<p>agregar-servicio works!</p>
+<form class="example-form">
+  <h1>Agregar servicio</h1>
+  <mat-divider></mat-divider>
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre de servicio</mat-label>
+    <input matInput placeholder="Nombre" value="">
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput placeholder="Ingresa la descripción..."></textarea>
+  </mat-form-field>
+   
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Precio de servicio</mat-label>
+    <input matInput type="number" class="example-right-align">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Cargar</button>
+</form>
