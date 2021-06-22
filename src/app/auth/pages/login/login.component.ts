@@ -1,5 +1,8 @@
 import { Input, Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Auth } from '../../interfaces/auth.interface';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +11,33 @@ import { FormGroup, FormControl } from '@angular/forms';
   styles: [
   ]
 })
-export class LoginComponent  {
+export class LoginComponent {
 
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-    }
+  auth: Auth = {
+    email: '',
+    password: '',
   }
-  @Input() error: string | null | undefined;
 
-  @Output() submitEM = new EventEmitter();
+  constructor(private router: Router,
+    private authService: AuthService,
+    private fb: FormBuilder) { }
+
+    miFormulario: FormGroup = this.fb.group({
+      email:    ['', [ Validators.required, Validators.email ]],
+      password: ['', [ Validators.required, Validators.minLength(6) ]],
+    });
+
+  login() {
+    
+    this.router.navigate(['./admin/listadoCliente']);
+    this.authService.login(this.auth).subscribe(resp => {
+      console.log('Respuesta', resp);
+    })
+  }
 
 
-  
+
+
+
 
 }

@@ -1,0 +1,12 @@
+.contenedorNavbar{
+    background-image: url("/assets/img/banner-home.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 350px;
+}
+
+
+
+.login{
+    float: right;
+}

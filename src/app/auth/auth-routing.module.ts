@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MainAdminComponent } from './pages/main-admin/main-admin.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: MainAdminComponent,
     children:[
       {
         path: 'login',

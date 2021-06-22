@@ -1,24 +1,42 @@
 
-<p>agregar-servicio works!</p>
-<form class="example-form">
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('./assets/img/bg-01.jpg');">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+<form class="login100-form" autocomplete="off">
   <h1>Agregar servicio</h1>
   <mat-divider></mat-divider>
   <br>
-  <mat-form-field class="example-full-width">
-    <mat-label>Nombre de servicio</mat-label>
-    <input matInput placeholder="Nombre" value="">
-  </mat-form-field>
+
+
+  <div class="wrap-input100 m-b-23">
+    <span class="label-input100">Nombre de servicio</span>
+    <input class="input100" type="text" name="nombreServicio" placeholder="Nombre" [(ngModel)]="servicioAdd.nombre">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 m-b-23">
+    <span class="label-input100">Descripción</span>
+    <textarea class="input100" type="text" name="descripcionServicio" placeholder="Ingrese la descripción.."
+      [(ngModel)]="servicioAdd.descripcion"></textarea>
+    <span class="focus-input100"></span>
+  </div>
+
   
-  <mat-form-field class="example-full-width">
-    <mat-label>Descripción</mat-label>
-    <textarea matInput placeholder="Ingresa la descripción..."></textarea>
-  </mat-form-field>
-   
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Precio de servicio</mat-label>
-    <input matInput type="number" class="example-right-align">
-    <span matPrefix>$&nbsp;</span>
-    <span matSuffix>.00</span>
-  </mat-form-field>
-  <button mat-raised-button color="primary">Cargar</button>
+
+  <div  appearance="fill">
+    <span class="label-input100">Precio de servicio</span>
+    
+    <input class="input100"
+           type="number" 
+           name="servicioPrecio" 
+           [(ngModel)]="servicioAdd.precio" >
+       <span matPrefix>$&nbsp;</span>
+    
+</div>
+
+  <button mat-raised-button color="primary" (click)="guardarServicio()">Agregar</button>
 </form>
+</div>
+</div>
+</div>

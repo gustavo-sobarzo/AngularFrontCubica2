@@ -9,7 +9,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EditarServicioComponent } from './pages/editar-servicio/editar-servicio.component';
 
 
-const rutas: Routes = [
+const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
@@ -37,7 +37,8 @@ const rutas: Routes = [
       {
         path: '**',
         redirectTo: 'listadoCliente'
-      }
+      },
+      
     ]
 
   }
@@ -46,7 +47,7 @@ const rutas: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-      RouterModule.forChild(rutas)
+      RouterModule.forChild(routes)
   ],
   exports:[
       RouterModule

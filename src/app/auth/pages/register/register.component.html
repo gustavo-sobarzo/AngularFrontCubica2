@@ -1,1 +1,109 @@
-<p>register works!</p>
+<form class="login100-form" autocomplete="off" #miFormulario="ngForm">
+    <img src="./assets/img/Captura.JPG" id="logo" width="90px" />
+      
+
+      
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Nombre</span>
+        <input class="input100"
+               type="text" 
+               name="nombre" 
+               placeholder="Ingrese su nombre"  [(ngModel)]="admin.name" >
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Email</span>
+        <input class="input100"
+               type="email" 
+               name="email" 
+               placeholder="Ingrese su email"  [(ngModel)]="admin.email" >
+        <span class="focus-input100"></span>
+    </div>
+
+      <div class="wrap-input100 m-b-23">
+          <span class="label-input100">Password</span>
+          <input class="input100"
+                 type="password" 
+                 name="password" 
+                 placeholder="Cree su contraseña"  [(ngModel)]="admin.password" >
+          <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Confirmar contraseña</span>
+        <input class="input100"
+               type="password" 
+               name="confirmar" 
+               placeholder="Confirme contraseña"  [(ngModel)]="admin.password_confirmation" >
+        <span class="focus-input100"></span>
+    </div>
+
+      <div class="wrap-input100 m-b-23">
+          <span class="label-input100">Apellido Paterno</span>
+          <input class="input100"
+                 type="text"
+                 name="apellidoP" 
+                 placeholder="Ingrese su apellido" [(ngModel)]="admin.apellidoP">
+          <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Apellido Materno</span>
+        <input class="input100"
+               type="text"
+               name="apellidoM" 
+               placeholder="Ingrese su apellido" [(ngModel)]="admin.apellidoM">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Telfono</span>
+        <input class="input100"
+               type="text"
+               name="telefono" 
+               placeholder="Ingrese su Telefono" [(ngModel)]="admin.telefono">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Fecha nacimiento</span>
+        <input class="input100"
+               type="date"
+               name="date" 
+               placeholder="Ingrese fecha" [(ngModel)]="admin.fecha_nacimiento">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23" style="display: none">
+        <span class="label-input100">idtipo</span>
+        <input class="input100"
+               type="number"
+               name="idtipo" 
+               placeholder="..." [(ngModel)]="admin.tipousuario_idTipoUsuario">
+        <span class="focus-input100"></span>
+    </div>
+      
+      <div class="text-right p-t-8 p-b-31"></div>
+      
+      <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn" (click)="register()">
+                  Registrarse
+              </button>
+          </div>
+      </div>
+
+      <div class="flex-col-c p-t-60">
+          <span class="txt1 p-b-17">
+              ¿No tienes cuenta?
+          </span>
+
+          <a routerLink="/auth/login" class="txt2">
+              Regresar al Login !
+          </a>
+      </div>
+  </form>
+
+

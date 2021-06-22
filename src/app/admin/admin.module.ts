@@ -11,10 +11,11 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EditarServicioComponent } from './pages/editar-servicio/editar-servicio.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations:[
-        
+    declarations: [
+
         AgregarServicioComponent,
         BuscarClienteComponent,
         VerClienteComponent,
@@ -22,16 +23,17 @@ import { EditarServicioComponent } from './pages/editar-servicio/editar-servicio
         ClienteComponent,
         DashboardComponent,
         EditarServicioComponent,
-        
+
     ],
-    imports:[
+    imports: [
         FlexLayoutModule,
         CommonModule,
-       MaterialModule,
-       AdminRoutingModule
+        MaterialModule,
+        AdminRoutingModule,
+        FormsModule
     ],
-   
-    
+
+
 })
 
-export class AdminModule {}
+export class AdminModule { }

@@ -1,0 +1,66 @@
+
+
+<div class="A-1"  fxLayoutGap="40px">
+    <h1 fxLayout="column"> Registrarse</h1>
+    <div fxFlex="50" fxLayout="column">
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" [(ngModel)]="cliente.name" required>
+        </mat-form-field>
+        
+        <div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column" >
+            <mat-form-field fxFlex="100">
+                <mat-label>Apellido paterno</mat-label>
+                <input matInput type="text" [(ngModel)]="cliente.apellidoP" required>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Apellido materno</mat-label>
+                <input matInput type="text" [(ngModel)]="cliente.apellidoM"  required>
+            </mat-form-field>
+        </div> 
+        
+        <mat-form-field fxFlex="100">
+            <mat-label>Fecha nacimiento</mat-label>
+            <input matInput 
+                   type="date"
+                   name="date" [(ngModel)]="cliente.fecha_nacimiento" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" [(ngModel)]="cliente.email" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="text" [(ngModel)]="cliente.password" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput type="text" [(ngModel)]="cliente.password_confirmation" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="text" [(ngModel)]="cliente.telefono" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100" >
+            <mat-label>tipoUsuario</mat-label>
+            <input matInput type="number" [(ngModel)]="cliente.tipousuario_idTipoUsuario" >
+        </mat-form-field>
+
+        <br>
+
+        <button mat-raised-button color="primary" (click)="guardar()">Regristrarse</button>
+
+    </div>
+
+    <div fxFlex="50">
+
+    </div>
+
+</div>

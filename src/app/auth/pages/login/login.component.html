@@ -1,34 +1,49 @@
-<p>login works!</p>
 
-<div class="container">
-  <img src="./assets/img/Captura.JPG" id="logo" width="100px" />
-<mat-card>
-    <mat-card-title>Login Administrador</mat-card-title>
-<mat-card-content>
-<form >
-  <p>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Usuario" formControlName="username">
-    </mat-form-field>
-  </p>
+          <form class="login100-form" 
+          autocomplete="off" 
+          [formGroup]="miFormulario"
+          (ngSubmit)="login()">
+            <img src="./assets/img/Captura.JPG" id="logo" width="90px" />
+              
 
-  <p>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Password" formControlName="password">
-    </mat-form-field>
-  </p>
+              <div class="wrap-input100 m-b-23" >
+                  <span class="label-input100">Email</span>
+                  <input class="input100"
+                         type="email" 
+                         formControlName="email" 
+                         placeholder="Ingrese su email"  [(ngModel)]="auth.email" >
+                  <span class="focus-input100"></span>
+              </div>
 
-  <p  >
-    
-  </p>
+              <div class="wrap-input100" >
+                  <span class="label-input100">Password</span>
+                  <input class="input100"
+                         type="password"
+                         formControlName="password" 
+                         placeholder="Ingrese su contraseña" [(ngModel)]="auth.password">
+                  <span class="focus-input100"></span>
+              </div>
+              
+              <div class="text-right p-t-8 p-b-31"></div>
+              
+              <div class="container-login100-form-btn">
+                  <div class="wrap-login100-form-btn">
+                      <div class="login100-form-bgbtn"></div>
+                      <button class="login100-form-btn" type="submit" [disabled]="miFormulario.invalid" (click)="login()">
+                          Login
+                      </button>
+                  </div>
+              </div>
 
-  <div class="button">
-    <a routerLink="/admin/listadoCliente">
-    <button type="submit" mat-button>Login</button>
-  </a>
-  </div>
+              <div class="flex-col-c p-t-60">
+                  <span class="txt1 p-b-17">
+                      ¿No tienes cuenta?
+                  </span>
 
-</form>
-</mat-card-content>
-</mat-card>
-</div>
+                  <a routerLink="/auth/registro" class="txt2">
+                      Crear una aquí
+                  </a>
+              </div>
+          </form>
+      
+
