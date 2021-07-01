@@ -46,9 +46,10 @@ export class DialogContentExampleDialog {
 
   login() {
     
-    this.router.navigate(['./admin/clientehome']);
+    this.router.navigate(['./cliente']);
     this.clienteService.login(this.auth).subscribe(resp => {
       console.log('Respuesta', resp);
+      
     })
   }
 

@@ -1,51 +1,50 @@
+<div class="contenedorPrincipal">
 
-    <h1 >Buscar Cliente</h1>
-    <mat-divider></mat-divider>
-    <br>
-
-<div fxLayout="row "  >
-    <div fxFlex="30">
-    </div>
-    
-    <mat-card fxFlex fxLayoutGap="0px">
-
-        <mat-card-header>
-            <mat-card-title> Juanito Perez </mat-card-title>
-            <mat-card-subtitle>Numero: +569-62715935 </mat-card-subtitle>
-        </mat-card-header>
-        <img src="./assets/img/perfil1.jpg">
-
-        <mat-card-content>
-            <h3>Cliente numero 1</h3>
-            <p>
-                <strong>Meses de suscripción : </strong>
-                <br>
-                <strong>Meses Pagados : </strong>
-            </p>
-        </mat-card-content>
-
-        <mat-card-actions>
-            <button mat-button color="warn">
-                Suspender
-            </button>
-
-            <button mat-button color="info">
-                Editar 
-            </button>
-        </mat-card-actions>
-        <div class="contenedor">
-
-            <mat-form-field class="example-full-width">
-    
-                <mat-label>
-                    <mat-icon>search</mat-icon>Nombre de cliente
-                </mat-label>
-                <input matInput placeholder="Nombre" value="">
-            </mat-form-field>
+    <div fxLayout="row ">
+        <div fxFlex="9">
         </div>
-    
-    </mat-card>
-    
-    <app-listado-cliente fxFlex="70" ></app-listado-cliente>
+
+        <mat-card>
+
+            <mat-card-header>
+                <mat-card-title> Juanito Perez </mat-card-title>
+                <mat-card-subtitle>Numero: +569-62715935 </mat-card-subtitle>
+            </mat-card-header>
+            <img src="./assets/img/perfil1.jpg">
+
+            <mat-card-content>
+                <h3>Cliente numero 1</h3>
+                <p>
+                    <strong>Meses de suscripción : </strong>
+                    <br>
+                    <strong>Meses Pagados : </strong>
+                </p>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-button color="warn">
+                    Suspender
+                </button>
+
+                <button mat-button color="info">
+                    Editar
+                </button>
+            </mat-card-actions>
+            <div class="contenedor">
+
+                <mat-form-field class="example-full-width">
+
+                    <mat-label>
+                        <mat-icon>search</mat-icon>Nombre de cliente
+                    </mat-label>
+                    <input matInput placeholder="Nombre" value="">
+                </mat-form-field>
+            </div>
+
+        </mat-card>
+
+        <app-listado-cliente fxFlex="70"></app-listado-cliente>
+
+    </div>
 
 </div>

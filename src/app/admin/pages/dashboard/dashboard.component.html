@@ -31,6 +31,15 @@
                 <span>Editar Servicio</span>
             </a>
 
+
+            <div class="footerDash">
+                <mat-divider></mat-divider>
+                <span> Cubica2®  </span>
+            <br>
+                <span> Tecnologia para la construcción  </span>
+            <br>
+                <a> www.cubica2.cl</a>
+            </div>
         </mat-nav-list>
 
     </mat-sidenav>
@@ -41,14 +50,13 @@
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
-        <h1 id="spanTitulo">  Panel de Administrador</h1>
-        
-        
+        <h1 id="spanTitulo">Panel de Administrador</h1>
 
         <span class="spacer" ></span>
-        <span> {{auth.email}} </span>
         
-        <a routerLink="" mat-list-item >
+        <pre> Bienvenido:{{usuario.email}}  </pre>
+        
+        <a class="notificacion" mat-list-item >
             <mat-icon mat-list-icon>notifications</mat-icon>
         </a>
        

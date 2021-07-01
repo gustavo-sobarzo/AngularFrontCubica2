@@ -1,6 +1,13 @@
-export interface Auth {
+export interface Usuario {
     email: string;
-    password: string;
+    
+}
+
+export interface AuthResponse{
+    email?: string;
+    token?: string;
+    error?: string;
+    ok: boolean;
 }
 
 export interface AuthRegistro {

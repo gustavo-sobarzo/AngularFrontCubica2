@@ -1,6 +1,6 @@
 table{
-    width: 60%;
-   
+    width: -webkit-fill-available;
+    
   }
   .mat-form-field {
     margin-right: 12px;
@@ -24,5 +24,11 @@ mat-paginator{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.contPrincipal{
+  margin-left: 40px;
+  margin-right: 40px;
+  
 }
 

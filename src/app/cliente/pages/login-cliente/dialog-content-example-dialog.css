@@ -1,4 +1,4 @@
-h2{
+h2, h3{
     text-align: center;
 }
 
@@ -2912,5 +2912,10 @@ h2{
   align-items: center;
   }
   
+
+  mat-dialog-content {
+    /* display: contents; */
+    display: contents;
+}
   
            

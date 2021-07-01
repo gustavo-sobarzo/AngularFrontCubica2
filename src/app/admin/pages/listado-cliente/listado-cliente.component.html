@@ -1,6 +1,10 @@
-<p>listado-cliente works!</p>
-<div class="cont1">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="contPrincipal">
+<mat-form-field  appearance="standard">
+  <mat-label>Filtro de Busqueda</mat-label>
+  <input autocomplete="off" matInput (keyup)="applyFilter($event)" placeholder="Buscar Cliente" #input>
+</mat-form-field>
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" >
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -43,7 +47,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No existe resultado para "{{input.value}}"</td>
+    </tr>
+
   </table>
-  
+
+  <mat-paginator class="paginador" [pageSizeOptions]="[5, 8]" showFirstLastButtons></mat-paginator>
 </div>
-<mat-paginator class="paginador" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

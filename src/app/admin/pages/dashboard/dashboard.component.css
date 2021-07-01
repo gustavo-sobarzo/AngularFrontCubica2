@@ -1,5 +1,5 @@
 .mat-toolbar {
-    background: #ffad33;
+    background: #F9BA0B;
     color: rgba(0,0,0,.87);
 }
 .container{
@@ -14,3 +14,30 @@
 #spanTitulo{
     align-items: center;
       }
+
+h1{
+    margin-left: 30%;
+}
+
+.notificacion{
+    margin-right: 25px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.footerDash{
+    text-align: center;
+    margin-top: 300px;
+    background-color: #F5F5F5;
+}
+
+hr{
+    color: #F9BA0B;
+}
+
+pre {
+    font-size: initial;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #E68200;
+    border-radius: 5px;
+}

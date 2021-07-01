@@ -12,7 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import {  MatButtonModule } from '@angular/material/button';
-
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import {  MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     MatButtonModule
   ],
-  
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
