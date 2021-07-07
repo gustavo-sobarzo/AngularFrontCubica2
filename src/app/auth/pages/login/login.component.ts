@@ -38,10 +38,11 @@ export class LoginComponent {
       password: ['', [ Validators.required, Validators.minLength(6) ]],
     });
 
+
+    /* recibe email y password de usuario */
   login() {
 
-    /* this.authService.validarToken()
-    .subscribe (resp => console.log(resp)); */
+    
     
     const {email, password} = this.miFormulario.value;
     this.authService.login( email, password ) 
