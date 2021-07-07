@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {  Router } from '@angular/router';
 
 import { AuthService } from '../../../auth/services/auth.service';
@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   /* get auth(){
     return this.autService.auth;
   } */
+  @Output() toggleSidenav = new EventEmitter<void>();
 
   get usuario(){
       return this.authService.usuario;
@@ -27,6 +28,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onToggleSidenav():void{
+    this.toggleSidenav.emit();
   }
 
 }

@@ -30,14 +30,9 @@ export class ListadoClienteComponent implements OnInit {
   sort!: MatSort;
 
   constructor(private adminService: AdminService) { 
-
-    
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -52,7 +47,7 @@ export class ListadoClienteComponent implements OnInit {
     this.renderDataTable();
     
   }
-
+  
   renderDataTable() {
     this.adminService.mostrarUser()
       .subscribe(
@@ -60,6 +55,8 @@ export class ListadoClienteComponent implements OnInit {
           this.dataSource = new MatTableDataSource();
           this.dataSource.data = x;
           console.log(this.dataSource.data);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         },
         error => {
           console.log('There was an error while retrieving Usuarios!' + error);

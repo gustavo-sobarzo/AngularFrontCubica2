@@ -1,7 +1,11 @@
 table{
     width: -webkit-fill-available;
-    
+    background: lemonchiffon;
   }
+mat-paginator{
+  background: rgb(255, 241, 114);
+  width: -webkit-fill-available;
+}
   .mat-form-field {
     margin-right: 12px;
   }
@@ -17,7 +21,7 @@ p{
 }
 
 mat-paginator{
-  width: 60%;
+  
     
     margin: 0 auto;
     display: flex;

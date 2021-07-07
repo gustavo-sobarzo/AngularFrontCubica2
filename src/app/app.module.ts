@@ -14,10 +14,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {  MatButtonModule } from '@angular/material/button';
 import { CookieService } from "ngx-cookie-service";
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
+    
     
     
     
@@ -33,7 +36,8 @@ import { CookieService } from "ngx-cookie-service";
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@
 }
 .container{
     padding: 10px;
+    background-color: #d3d3d3;
    }
 
    #logo {
@@ -27,7 +28,7 @@ h1{
 
 .footerDash{
     text-align: center;
-    margin-top: 300px;
+    margin-top: 306px;
     background-color: #F5F5F5;
 }
 
@@ -40,4 +41,8 @@ pre {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background: #E68200;
     border-radius: 5px;
+}
+
+mat-sidenav{
+    position: fixed;
 }

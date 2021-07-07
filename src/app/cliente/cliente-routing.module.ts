@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { ServicioComponent } from './pages/servicio/servicio.component';
 
 const rutes: Routes = [
 {
@@ -16,6 +18,18 @@ const rutes: Routes = [
     {
       path: 'loginCliente',
       component: LoginClienteComponent
+    },
+    {
+      path: 'inicio',
+      component: InicioComponent
+    },
+    {            
+    path: 'servicio',
+      component: ServicioComponent
+    },
+    {
+      path: '**',
+      redirectTo: 'inicio'
     }
   ],
 }

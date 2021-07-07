@@ -12,6 +12,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EditarServicioComponent } from './pages/editar-servicio/editar-servicio.component';
 import { FormsModule } from '@angular/forms';
+import { ListarServicioComponent } from './pages/listar-servicio/listar-servicio.component';
+import { ServicioTarjetaComponent } from './components/servicio-tarjeta/servicio-tarjeta.component';
+import { MainMenuBarrasComponent } from './pages/main-menu-barras/main-menu-barras.component';
+import { ChartsModule } from 'ng2-charts';
+import { BarrasComponent } from './components/grafica-barra/barras/barras.component';
+
+
+
+
 
 @NgModule({
     declarations: [
@@ -23,6 +32,11 @@ import { FormsModule } from '@angular/forms';
         ClienteComponent,
         DashboardComponent,
         EditarServicioComponent,
+        ListarServicioComponent,
+        ServicioTarjetaComponent,
+        MainMenuBarrasComponent,
+        BarrasComponent,
+        
 
     ],
     imports: [
@@ -30,7 +44,9 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         MaterialModule,
         AdminRoutingModule,
-        FormsModule
+        FormsModule,
+        ChartsModule,
+        
     ],
 
 

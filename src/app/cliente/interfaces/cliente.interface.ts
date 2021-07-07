@@ -1,4 +1,16 @@
-export interface Cliente{
+export interface Usuario {
+    email: string;
+    
+}
+
+export interface AuthResponse{
+    email?: string;
+    token?: string;
+    error?: string;
+    ok: boolean;
+}
+
+export interface AuthRegistro {
     name: string;
     email: string;
     password: string;
@@ -8,9 +20,4 @@ export interface Cliente{
     telefono: string;
     fecha_nacimiento: Date;
     tipousuario_idTipoUsuario: number;
-}
-
-export interface Auth {
-    email: string;
-    password: string;
 }

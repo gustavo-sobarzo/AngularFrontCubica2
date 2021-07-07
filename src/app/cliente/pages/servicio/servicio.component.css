@@ -1,0 +1,23 @@
+.example-form {
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    
+  }
+  div{
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  .example-full-width {
+    width: 70%;
+    
+  }
+
+  mat-card{
+    background-color: bisque;
+  }

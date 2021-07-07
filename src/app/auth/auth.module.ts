@@ -11,6 +11,7 @@ import { MainAdminComponent } from './pages/main-admin/main-admin.component';
 
 
 
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -23,7 +24,8 @@ import { MainAdminComponent } from './pages/main-admin/main-admin.component';
     AuthRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    
   ]
 })
 export class AuthModule { }

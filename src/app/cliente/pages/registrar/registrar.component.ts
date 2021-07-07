@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
-import { Cliente } from '../../interfaces/cliente.interface';
+import { AuthResponse } from '../../interfaces/cliente.interface';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -8,11 +11,11 @@ import { Cliente } from '../../interfaces/cliente.interface';
   styleUrls: ['./registrar.component.css'
   ]
 })
-export class RegistrarComponent implements OnInit {
+export class RegistrarComponent {
 
   
 
-  cliente: Cliente = {
+  miFormulario: FormGroup = this.fb.group({
     name: '',
     email: '',
     password: '',
@@ -22,24 +25,53 @@ export class RegistrarComponent implements OnInit {
     telefono: '',
     fecha_nacimiento: new Date(),
     tipousuario_idTipoUsuario: 5,
-  }
+  });
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService,
+              private fb: FormBuilder,
+              private router:Router) { }
 
-  ngOnInit(): void {
-    this.clienteService.getClientes()
+  /* ngOnInit(): void {
+    this.authService.getAdmin()
       .subscribe(resp => console.log(resp));
+  } */
 
-  }
-
-  guardar(){
-    if(this.cliente.password_confirmation.trim().length === 0){
+  register(){
+    /* if(this.admin.password_confirmation.trim().length === 0){
       return;
-    }
+    } */
 
-     this.clienteService.registrarCliente(this.cliente).subscribe(resp => {
+    const {name, email, password,password_confirmation, apellidoP,
+      apellidoM, telefono, fecha_nacimiento, tipousuario_idTipoUsuario} = this.miFormulario.value;
+    this.clienteService.registro( name, email, password, password_confirmation, apellidoP,
+                           apellidoM, telefono, fecha_nacimiento, tipousuario_idTipoUsuario ) 
+    .subscribe(  resp => {
+      
+      let dataResponse:AuthResponse = resp;
+      console.log(resp);
+      if(dataResponse.ok === false){
+        Swal.fire('Error','Credenciales incorrectas');
+      }else{
+        this.router.navigateByUrl('/cliente/inicio');
+      }
+      
+    });
+
+     /* this.authService.registrarAdmin(this.admin).subscribe(resp => {
     console.log('Respuesta', resp);
   })
+
+    this.miFormulario.resetForm({
+      name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    apellidoP: '',
+    apellidoM: '',
+    telefono: '',
+    fecha_nacimiento: new Date(),
+    tipousuario_idTipoUsuario: 5,
+    }) */
   }
 
   

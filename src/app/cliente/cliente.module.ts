@@ -9,7 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
 import { DialogContentExampleDialog, LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
 import { AuthModule } from '../auth/auth.module';
-
+import { InicioComponent } from './pages/inicio/inicio.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { ArriendoComponent } from './pages/arriendo/arriendo.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { ServicioComponent } from './pages/servicio/servicio.component';
 
 
 
@@ -24,6 +28,10 @@ import { AuthModule } from '../auth/auth.module';
     NavBarComponent,
     LoginClienteComponent,
     DialogContentExampleDialog,
+    InicioComponent,
+    ArriendoComponent,
+    FooterComponent,
+    ServicioComponent,
     
   ],
   imports: [
@@ -32,7 +40,8 @@ import { AuthModule } from '../auth/auth.module';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    IvyCarouselModule
   ],
   entryComponents: [LoginClienteComponent],
     

@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ListadoClienteComponent } from './pages/listado-cliente/listado-cliente.component';
@@ -6,7 +6,9 @@ import { AgregarServicioComponent } from './pages/agregar-servicio/agregar-servi
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { EditarServicioComponent } from './pages/editar-servicio/editar-servicio.component';
+import { ListarServicioComponent } from './pages/listar-servicio/listar-servicio.component';
+import { MainMenuBarrasComponent } from './pages/main-menu-barras/main-menu-barras.component';
+
 
 
 const routes: Routes = [
@@ -23,23 +25,34 @@ const routes: Routes = [
         component: AgregarServicioComponent
       },
       {
+        path: 'listarServicio',
+        component: ListarServicioComponent
+      },
+      {
         path: 'editar/:id',
-        component: EditarServicioComponent
+        component: AgregarServicioComponent
+      },
+      {
+        path: 'mainMenuBarras',
+        component: MainMenuBarrasComponent
       },
       {
         path: 'buscarCliente',
         component: BuscarClienteComponent
       },
-      {
+      { 
         path: ':id',
         component: ClienteComponent
       },
+      
       {
         path: '**',
         redirectTo: 'listadoCliente'
       },
       
-    ]
+    ],
+
+    
 
   }
 ];

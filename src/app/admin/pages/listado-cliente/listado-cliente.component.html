@@ -1,10 +1,11 @@
+
 <div class="contPrincipal">
 <mat-form-field  appearance="standard">
   <mat-label>Filtro de Busqueda</mat-label>
   <input autocomplete="off" matInput (keyup)="applyFilter($event)" placeholder="Buscar Cliente" #input>
 </mat-form-field>
 <div class="mat-elevation-z8">
-<table mat-table [dataSource]="dataSource" >
+<table mat-table matTableExporter  [dataSource]="dataSource" #exporter="matTableExporter">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -51,8 +52,12 @@
       <td class="mat-cell" colspan="4">No existe resultado para "{{input.value}}"</td>
     </tr>
 
-  </table>
+  </table >
 
   <mat-paginator class="paginador" [pageSizeOptions]="[5, 8]" showFirstLastButtons></mat-paginator>
+</div>
+<br>
+<div>
+<button    mat-raised-button  (click)="exporter.exportTable('csv')">Exportar</button>
 </div>
 </div>

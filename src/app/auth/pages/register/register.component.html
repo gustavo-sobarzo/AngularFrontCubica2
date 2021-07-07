@@ -1,4 +1,9 @@
-<form class="login100-form" autocomplete="off" #miFormulario="ngForm">
+<form 
+class="login100-form" 
+autocomplete="off" 
+[formGroup]="miFormulario"
+(ngSubmit)="register()"
+>
     <img src="./assets/img/Captura.JPG" id="logo" width="90px" />
       
 
@@ -7,17 +12,17 @@
         <span class="label-input100">Nombre</span>
         <input class="input100"
                type="text" 
-               name="nombre" 
-               placeholder="Ingrese su nombre"  [(ngModel)]="admin.name" >
+               formControlName="name" 
+               placeholder="Ingrese su nombre">
         <span class="focus-input100"></span>
     </div>
 
     <div class="wrap-input100 m-b-23">
         <span class="label-input100">Email</span>
         <input class="input100"
-               type="email" 
-               name="email" 
-               placeholder="Ingrese su email"  [(ngModel)]="admin.email" >
+               type="text" 
+               formControlName="email" 
+               placeholder="Ingrese su email">
         <span class="focus-input100"></span>
     </div>
 
@@ -25,8 +30,8 @@
           <span class="label-input100">Password</span>
           <input class="input100"
                  type="password" 
-                 name="password" 
-                 placeholder="Cree su contraseña"  [(ngModel)]="admin.password" >
+                 formControlName="password" 
+                 placeholder="Cree su contraseña">
           <span class="focus-input100"></span>
       </div>
 
@@ -34,8 +39,8 @@
         <span class="label-input100">Confirmar contraseña</span>
         <input class="input100"
                type="password" 
-               name="confirmar" 
-               placeholder="Confirme contraseña"  [(ngModel)]="admin.password_confirmation" >
+               formControlName="password_confirmation" 
+               placeholder="Confirme contraseña" >
         <span class="focus-input100"></span>
     </div>
 
@@ -43,8 +48,8 @@
           <span class="label-input100">Apellido Paterno</span>
           <input class="input100"
                  type="text"
-                 name="apellidoP" 
-                 placeholder="Ingrese su apellido" [(ngModel)]="admin.apellidoP">
+                 formControlName="apellidoP" 
+                 placeholder="Ingrese su apellido">
           <span class="focus-input100"></span>
       </div>
 
@@ -52,8 +57,8 @@
         <span class="label-input100">Apellido Materno</span>
         <input class="input100"
                type="text"
-               name="apellidoM" 
-               placeholder="Ingrese su apellido" [(ngModel)]="admin.apellidoM">
+               formControlName="apellidoM"
+               placeholder="Ingrese su apellido" >
         <span class="focus-input100"></span>
     </div>
 
@@ -61,8 +66,8 @@
         <span class="label-input100">Telfono</span>
         <input class="input100"
                type="text"
-               name="telefono" 
-               placeholder="Ingrese su Telefono" [(ngModel)]="admin.telefono">
+               formControlName="telefono"
+               placeholder="Ingrese su Telefono" >
         <span class="focus-input100"></span>
     </div>
 
@@ -70,8 +75,8 @@
         <span class="label-input100">Fecha nacimiento</span>
         <input class="input100"
                type="date"
-               name="date" 
-               placeholder="Ingrese fecha" [(ngModel)]="admin.fecha_nacimiento">
+               formControlName="fecha_nacimiento" 
+               placeholder="Ingrese fecha">
         <span class="focus-input100"></span>
     </div>
 
@@ -79,8 +84,8 @@
         <span class="label-input100">idtipo</span>
         <input class="input100"
                type="number"
-               name="idtipo" 
-               placeholder="..." [(ngModel)]="admin.tipousuario_idTipoUsuario">
+               formControlName="tipousuario_idTipoUsuario"  
+               placeholder="...">
         <span class="focus-input100"></span>
     </div>
       
@@ -89,16 +94,14 @@
       <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button class="login100-form-btn" (click)="register()">
+              <button class="login100-form-btn" type="submit" [disabled]="miFormulario.invalid">
                   Registrarse
               </button>
           </div>
       </div>
 
       <div class="flex-col-c p-t-60">
-          <span class="txt1 p-b-17">
-              ¿No tienes cuenta?
-          </span>
+          
 
           <a routerLink="/auth/login" class="txt2">
               Regresar al Login !

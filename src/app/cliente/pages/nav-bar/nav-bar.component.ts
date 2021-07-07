@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthResponse } from '../../interfaces/cliente.interface';
+import { ClienteService } from '../../services/cliente.service';
+
 
 
 
@@ -9,9 +12,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+    logeado = true;
+    logeado2 = false;
+    /* token = localStorage.getItem('token'); */
+     
+    ocultarETQ(){
+      /* let respuesta = this.token */
+      
+        this.logeado = false;
+        this.logeado2 = true;
+      
+        
+    }
+  constructor(private clienteService: ClienteService) { 
+    ///token => localstorage => false
+    
+    
+  
+  }
+
+  get usuario(){
+    return this.clienteService.usuario;
+    
+}
 
   ngOnInit(): void {
   }
+
+   
 
 }

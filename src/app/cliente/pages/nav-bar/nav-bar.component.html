@@ -1,19 +1,18 @@
 
 <div class="contenedorNavbar">
-<button mat-button >Inicio</button>
+<button mat-button routerLink="inicio">Inicio</button>
 
 
-<button mat-button >Servicio</button>
-
-
-<button mat-button >Contáctanos</button>
+<button mat-button routerLink="/cliente/servicio">Servicio</button>
 
 
 
-<button mat-button >Información</button>
+<button mat-button routerLink="/cliente/registrar">Registrarse</button>
 
 <div class="login">
-<app-login-cliente>Iniciar Sesión</app-login-cliente>
+    <pre *ngIf="logeado2"> Bienvenido:{{usuario.email}}  </pre>
+<app-login-cliente *ngIf="logeado" (click)="ocultarETQ()">Iniciar Sesión</app-login-cliente>
+
 </div>
 
 </div>

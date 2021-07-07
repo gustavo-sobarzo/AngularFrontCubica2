@@ -10,7 +10,8 @@ export interface Admin{
     tipousuario_idTipoUsuario: number;
 }
 
-export interface ServicioAdd{
+export interface Servicio{
+    idServicio?: number;
     nombre: string;
     descripcion: string;
     precio: number;

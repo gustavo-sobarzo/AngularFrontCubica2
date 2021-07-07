@@ -1,0 +1,22 @@
+<p>listar-servicio works!</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<div  fxLayout="row wrap"
+      fxLayoutAlign="center"
+      fxLayoutGap="20px">
+
+    <div class="cardContainer" 
+         fxFlex="20"
+         fxFlex.sm="30"
+         fxFlex.lg="30"
+         *ngFor="let servicio of servicio">
+
+        <app-servicio-tarjeta [servicio]="servicio" ></app-servicio-tarjeta>
+
+    </div>
+
+
+
+</div>

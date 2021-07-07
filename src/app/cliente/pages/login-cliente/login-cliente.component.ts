@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Auth } from '../../interfaces/cliente.interface';
+import Swal from 'sweetalert2';
+import { AuthResponse } from '../../interfaces/cliente.interface';
 import { ClienteService } from '../../services/cliente.service';
+
 
 @Component({
   selector: 'app-login-cliente',
@@ -20,6 +22,7 @@ export class LoginClienteComponent  {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    
   }
 } 
 
@@ -29,11 +32,6 @@ export class LoginClienteComponent  {
   styleUrls: ['./dialog-content-example-dialog.css']
 })
 export class DialogContentExampleDialog {
-
-  auth: Auth = {
-    email: '',
-    password: '',
-  }
 
   constructor(private router: Router,
     private clienteService: ClienteService,
@@ -45,12 +43,24 @@ export class DialogContentExampleDialog {
     });
 
   login() {
+
+    /* this.authService.validarToken()
+    .subscribe (resp => console.log(resp)); */
     
-    this.router.navigate(['./cliente']);
-    this.clienteService.login(this.auth).subscribe(resp => {
-      console.log('Respuesta', resp);
+    const {email, password} = this.miFormulario.value;
+    this.clienteService.login( email, password ) 
+    .subscribe(  resp => {
       
-    })
+      let dataResponse:AuthResponse = resp;
+      
+      if(dataResponse.ok === false){
+        Swal.fire('Error','Credenciales incorrectas');
+      }else{
+        this.router.navigateByUrl('cliente/homeCliente');
+      }
+      
+    });
+
   }
 
 

@@ -1,5 +1,6 @@
 <mat-drawer-container fullscreen>
-    <mat-sidenav #sidenav>
+    <div >
+    <mat-sidenav #sidenav mode="side" >
 
         <mat-toolbar>
             <button mat-icon-button (click)="sidenav.toggle()">
@@ -16,19 +17,21 @@
                 <span>Listar clientes</span>
             </a>
 
-            <a routerLink="buscarCliente" mat-list-item>
-                <mat-icon mat-list-icon>search</mat-icon>
-                <span>Buscar Cliente</span>
-            </a>
+            
 
             <a routerLink="./agregarServicio" mat-list-item>
                 <mat-icon mat-list-icon>add</mat-icon>
                 <span>Agregar Servicio</span>
             </a>
 
-            <a routerLink="editar/:id" mat-list-item>
+            <a routerLink="listarServicio" mat-list-item>
                 <mat-icon mat-list-icon>edit</mat-icon>
                 <span>Editar Servicio</span>
+            </a>
+
+            <a routerLink="./mainMenuBarras" mat-list-item>
+                <mat-icon mat-list-icon>leaderboard</mat-icon>
+                <span>ver graficas</span>
             </a>
 
 
@@ -45,7 +48,7 @@
     </mat-sidenav>
 
 
-    <mat-toolbar>
+    <mat-toolbar #sidenav mode="side">
         <img src="./assets/img/Captura.JPG" id="logo" width="100px" />
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
@@ -66,9 +69,9 @@
   
           </div>
     </mat-toolbar>
-
+    </div>
     <div class="conatiner">
         <router-outlet></router-outlet>
     </div>
-
 </mat-drawer-container>
+

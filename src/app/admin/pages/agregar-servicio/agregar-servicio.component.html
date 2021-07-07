@@ -1,42 +1,36 @@
 
-<div class="limiter">
-  <div class="container-login100" style="background-image: url('./assets/img/bg-01.jpg');">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+<mat-card>
 
-<form class="login100-form" autocomplete="off">
+<div class="formularioAgregar" >   
+<form    autocomplete="off">
   <h1>Agregar servicio</h1>
   <mat-divider></mat-divider>
   <br>
-
-
-  <div class="wrap-input100 m-b-23">
-    <span class="label-input100">Nombre de servicio</span>
-    <input class="input100" type="text" name="nombreServicio" placeholder="Nombre" [(ngModel)]="servicioAdd.nombre">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre de servicio</mat-label>
+    <input class="input100" type="text" name="nombreServicio" placeholder="Nombre" [(ngModel)]="servicio.nombre"
+      matInput>
     <span class="focus-input100"></span>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput type="text" name="descripcionServicio" placeholder="Ingrese la descripción.."
+      [(ngModel)]="servicio.descripcion"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Precio de servicio</mat-label>
+
+    <input  min="0"  matInput class="example-right-align" type="number" name="servicioPrecio" placeholder="0"
+      [(ngModel)]="servicio.precio ">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" (click)="guardarServicio()">Guardar</button>
   </div>
-
-  <div class="wrap-input100 m-b-23">
-    <span class="label-input100">Descripción</span>
-    <textarea class="input100" type="text" name="descripcionServicio" placeholder="Ingrese la descripción.."
-      [(ngModel)]="servicioAdd.descripcion"></textarea>
-    <span class="focus-input100"></span>
-  </div>
-
-  
-
-  <div  appearance="fill">
-    <span class="label-input100">Precio de servicio</span>
-    
-    <input class="input100"
-           type="number" 
-           name="servicioPrecio" 
-           [(ngModel)]="servicioAdd.precio" >
-       <span matPrefix>$&nbsp;</span>
-    
-</div>
-
-  <button mat-raised-button color="primary" (click)="guardarServicio()">Agregar</button>
 </form>
 </div>
-</div>
-</div>
+
+</mat-card>

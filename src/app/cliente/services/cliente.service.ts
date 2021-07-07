@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Auth, Cliente } from '../interfaces/cliente.interface';
+
 import { environment } from '../../../environments/environment';
-import { tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
+import { AuthResponse, Usuario } from '../interfaces/cliente.interface';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,74 @@ import { tap } from 'rxjs/operators';
 export class ClienteService {
 
   private baseUrl: string = environment.baseUrl;
-  private _auth: Auth | undefined;
-  constructor( private http: HttpClient ) { }
+  private _usuario!: Usuario;
 
-  getClientes(){
+
+  
+
+  get usuario() {
+    return { ...this._usuario };
+  }
+  
+
+
+  constructor(private http: HttpClient) { }
+
+
+
+  getAdmin() {
     return this.http.get('')
   }
-
-  login ( auth: Auth): Observable<Auth>{
-    return this.http.post<Auth>(`${this.baseUrl}/Project_Cubic/public/api/login`, auth)
-    .pipe(tap(auth => this._auth = auth));
+  
+  registro(name:string, email:string, password:string,
+           password_confirmation:string, apellidoP:string,
+           apellidoM:string, telefono:string, fecha_nacimiento: Date,
+           tipousuario_idTipoUsuario: number){
+            const url = `${this.baseUrl}/Project_Cubic/public/api/register`;
+            const body = { name, email, password,password_confirmation, apellidoP,
+                           apellidoM, telefono, fecha_nacimiento, tipousuario_idTipoUsuario };
+            return this.http.post<AuthResponse>(url, body)
+              .pipe(
+                tap(resp => {
+                  if (resp.token) {
+                    
+                    localStorage.setItem('token', resp.token);
+                    this._usuario = {
+                      email
+                    }
+                  }
+                }),
+                map(resp => resp.token),
+                catchError(err => of(err))
+              );
   }
 
-  registrarCliente ( cliente: Cliente): Observable<Cliente>{
-    return this.http.post<Cliente>(`${this.baseUrl}/Project_Cubic/public/api/register`, cliente);
+  login(email: string, password: string) {
+
+    const url = `${this.baseUrl}/Project_Cubic/public/api/login`;
+    const body = { email, password };
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        tap(resp => {
+          if (resp.token) {
+            
+            localStorage.setItem('token',  'Bearer ' + resp.token);
+            this._usuario = {
+              email
+            }
+          }
+        }),
+        map(resp => resp.token),
+        catchError(err => of(err))
+      );
+  }
+  
+
+  validarToken(){
+      const url = `${this.baseUrl}/Project_Cubic/public/api/user`;
+      const headers = new HttpHeaders()
+      .set(('Authorization'),   localStorage.getItem ('token') || '');
+      return this.http.post (url, {headers});
   }
 
 }

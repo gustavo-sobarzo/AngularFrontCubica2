@@ -5,7 +5,7 @@ export interface Usuario {
 
 export interface AuthResponse{
     email?: string;
-    token?: string;
+    token: string;
     error?: string;
     ok: boolean;
 }

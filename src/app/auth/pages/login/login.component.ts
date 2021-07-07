@@ -39,10 +39,11 @@ export class LoginComponent {
     });
 
   login() {
+
+    /* this.authService.validarToken()
+    .subscribe (resp => console.log(resp)); */
     
     const {email, password} = this.miFormulario.value;
-    
-    
     this.authService.login( email, password ) 
     .subscribe(  resp => {
       
@@ -55,11 +56,7 @@ export class LoginComponent {
       }
       
     });
-    
-    /* this.router.navigate(['./admin/listadoCliente']);
-    this.authService.login(this.auth).subscribe(resp => {
-      console.log('Respuesta', resp);
-    }) */
+
   }
 
 }

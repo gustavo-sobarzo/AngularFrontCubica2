@@ -12,6 +12,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatTableExporterModule } from 'mat-table-exporter';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 
@@ -31,7 +35,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         ReactiveFormsModule,
         MatDialogModule,
         MatCheckboxModule,
-        
+        MatTableExporterModule,
+        MatGridListModule
         
     ]
 })

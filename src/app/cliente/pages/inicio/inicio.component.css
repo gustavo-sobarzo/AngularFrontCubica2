@@ -1,0 +1,65 @@
+.carrusel{
+    width: 30%;
+    height: 30%;
+    padding: 12px;
+    margin-left: 20px;
+}
+.central{
+    width: 300px;
+    margin-left: 90px;
+}
+.contImagenes{
+    display: flex;
+}
+
+mat-card{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: #FFDE00;
+    color: 	#22252B;
+}
+
+mat-card-header{
+    text-align: center;
+}
+
+.imagenCard{
+    width: 363px;
+    
+}
+
+mat-grid-tile {
+    background: #FED652;
+    border-radius: 10px;
+    display: inline;
+  }
+
+  .mat-grid-list {
+    
+    position: relative;
+    padding: 24px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+button{
+    background-color: #FA6600;
+}
+.gridC{
+    background-color: seashell;
+}
+
+.gridB{
+    background-color: seashell;
+}
+
+.gridD{
+    background-image: url("/assets/img/2.jpg");
+    background-size: cover;
+}
+
+.contGrid{
+    padding:40px ;
+}
