@@ -1,20 +1,28 @@
-
 <div class="contenedorNavbar">
-<button mat-button routerLink="inicio">Inicio</button>
+    <button class="buttonNav" mat-button routerLink="inicio">Inicio</button>
 
+    <button class="buttonNav" mat-button routerLink="/cliente/servicio">Servicio</button>
 
-<button mat-button routerLink="/cliente/servicio">Servicio</button>
+    <button class="buttonNav" mat-button routerLink="/cliente/registrar">Registrarse</button>
+    
+    <button class="buttonNav" mat-button routerLink="/cliente/arriendo" *ngIf="validar2()">Arriendo</button>
 
+    <div class="login">
+        
+            <p class="usuario"  *ngIf="validar2()"> Bienvenido: {{usuario}}  </p>
+            <p *ngIf="validar2()">
+                <button class="logout" mat-raised-button *ngIf="validar2()" (click)="logout()">Logout</button>
+            </p>
+        <div class="button">
+            
+        </div>
+            
+        
+        <p class="pLogin" *ngIf="validar()">
+            <app-login-cliente>Iniciar Sesión</app-login-cliente>
+        </p>
+        
 
-
-<button mat-button routerLink="/cliente/registrar">Registrarse</button>
-
-<div class="login">
-    <pre *ngIf="logeado2"> Bienvenido:{{usuario.email}}  </pre>
-<app-login-cliente *ngIf="logeado" (click)="ocultarETQ()">Iniciar Sesión</app-login-cliente>
+    </div>
 
 </div>
-
-</div>
-
-

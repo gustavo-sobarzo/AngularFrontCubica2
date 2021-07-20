@@ -5,6 +5,8 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { ServicioComponent } from './pages/servicio/servicio.component';
+import { ClienteGuard } from './guards/cliente.guard';
+import { ArriendoComponent } from './pages/arriendo/arriendo.component';
 
 const rutes: Routes = [
 {
@@ -25,7 +27,14 @@ const rutes: Routes = [
     },
     {            
     path: 'servicio',
-      component: ServicioComponent
+      component: ServicioComponent,
+      
+    },
+    {
+      path: 'arriendo',
+      component: ArriendoComponent,
+      canActivate:[ClienteGuard],
+    canLoad:[ClienteGuard]
     },
     {
       path: '**',

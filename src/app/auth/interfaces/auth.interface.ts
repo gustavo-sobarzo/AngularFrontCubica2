@@ -1,13 +1,18 @@
 export interface Usuario {
     email: string;
-    
+    name?: string;
+    tipousuario_idTipoUsuario?: number;
 }
 
+
+  
+
 export interface AuthResponse{
-    email?: string;
+    email: string;
     token: string;
     error?: string;
     ok: boolean;
+    tipousuario_idTipoUsuario?: number;
 }
 
 export interface AuthRegistro {

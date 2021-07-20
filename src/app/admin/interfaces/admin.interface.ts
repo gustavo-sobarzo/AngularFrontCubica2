@@ -18,10 +18,16 @@ export interface Servicio{
 }
 
 export interface ListarClientes{
-    name: string;
-    email: string;
-    apellidoP: string;
-    apellidoM: string;
-    telefono: string;
-    fecha_nacimiento: Date;
+    name?: string;
+    email?: string;
+    apellidoP?: string;
+    apellidoM?: string;
+    telefono?: string;
+    fecha_nacimiento?: Date;
+    tipousuario_idTipoUsuario?: number;
+}
+
+export interface ListarClientesResponse{
+    
+    tipousuario_idTipoUsuario?: number;
 }

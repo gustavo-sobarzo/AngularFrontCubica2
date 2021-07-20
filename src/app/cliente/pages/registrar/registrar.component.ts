@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { AuthResponse } from '../../interfaces/cliente.interface';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -16,14 +16,14 @@ export class RegistrarComponent {
   
 
   miFormulario: FormGroup = this.fb.group({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    apellidoP: '',
-    apellidoM: '',
-    telefono: '',
-    fecha_nacimiento: new Date(),
+    name: ['', [ Validators.required]],
+    email: ['', [ Validators.required, Validators.email ]],
+    password: ['', [ Validators.required, Validators.minLength(6) ]],
+    password_confirmation: ['', [ Validators.required, Validators.minLength(6)]],
+    apellidoP: ['', [ Validators.required]],
+    apellidoM: ['', [ Validators.required]],
+    telefono: ['', [ Validators.required]],
+    fecha_nacimiento: [new Date(), [ Validators.required]],
     tipousuario_idTipoUsuario: 5,
   });
 
@@ -31,15 +31,8 @@ export class RegistrarComponent {
               private fb: FormBuilder,
               private router:Router) { }
 
-  /* ngOnInit(): void {
-    this.authService.getAdmin()
-      .subscribe(resp => console.log(resp));
-  } */
-
+ 
   register(){
-    /* if(this.admin.password_confirmation.trim().length === 0){
-      return;
-    } */
 
     const {name, email, password,password_confirmation, apellidoP,
       apellidoM, telefono, fecha_nacimiento, tipousuario_idTipoUsuario} = this.miFormulario.value;
@@ -57,21 +50,7 @@ export class RegistrarComponent {
       
     });
 
-     /* this.authService.registrarAdmin(this.admin).subscribe(resp => {
-    console.log('Respuesta', resp);
-  })
-
-    this.miFormulario.resetForm({
-      name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    apellidoP: '',
-    apellidoM: '',
-    telefono: '',
-    fecha_nacimiento: new Date(),
-    tipousuario_idTipoUsuario: 5,
-    }) */
+     
   }
 
   

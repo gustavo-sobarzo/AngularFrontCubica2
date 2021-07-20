@@ -35,12 +35,14 @@ export class BarrasComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
+
+  
   ngOnInit(): void {
     this.adminService.mostrarUser()
     .subscribe(data => {
       console.log(data);
-      const name = data.map(data => data.name)
-      const edad = data.map(data => data.fecha_nacimiento)
+     /*  const name = data.map(data => data.name)
+      const edad = data.map(data => data.fecha_nacimiento) */
       
       /* 
       edad.forEach(result => {
@@ -50,8 +52,8 @@ export class BarrasComponent implements OnInit {
       let edadParse = [Date]; */
 
       console.log(name);
-      console.log(edad);
-      this.barChartLabels = name;
+      /* console.log(edad); */
+      /* this.barChartLabels = name; */
       /* this.barChartData.push(edad); */
     });
   }

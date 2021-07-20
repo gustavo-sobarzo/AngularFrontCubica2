@@ -1,1 +1,39 @@
-<p>arriendo works!</p>
+<div 
+class="cardContainer" 
+fxFlex="20" 
+fxFlex.sm="30" 
+fxFlex.lg="30" 
+
+>
+    
+    <p>Arrendar servicio</p>
+    <p hidden></p>
+    <form (ngSubmit)="crearArriendo()" layout="row" [formGroup]="miFormulario">
+        
+        <strong>vencido: </strong> 
+        <input  type="number" formControlName="vencido" ><br>
+        <strong>activo: </strong> 
+        <input  type="number" formControlName="activo" ><br>
+        <strong >id_servicio: </strong> 
+        <input  type="number"  *ngFor="let idServicio of servicio" formControlName="servicio_idServicio" [value]="idServicio"><br>
+        
+        <mat-form-field>
+          <mat-label>Metodo Pago</mat-label>
+          <mat-select [formGroup]="miFormulario" required>
+            <mat-option *ngFor="let tipoPago of tipoPago"
+                        [value]="tipoPago.idTipoPago">
+                {{tipoPago.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="wrap-login100-form-btn">
+          <div class="login100-form-bgbtn"></div>
+          <button class="login100-form-btn" type="submit">
+              Comprar servicio
+          </button>
+      </div>
+
+    </form>
+
+</div>

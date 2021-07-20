@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from '../services/admin.service';
+import { ListarClientes, ListarClientesResponse } from '../../interfaces/admin.interface';
 
 
 
@@ -29,10 +30,10 @@ export class ListadoClienteComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private adminService: AdminService) { 
+  constructor(private adminService: AdminService) {
   }
 
-  
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -45,18 +46,27 @@ export class ListadoClienteComponent implements OnInit {
 
   ngOnInit() {
     this.renderDataTable();
-    
+
   }
-  
+
   renderDataTable() {
+
     this.adminService.mostrarUser()
       .subscribe(
         x => {
+
+
+
           this.dataSource = new MatTableDataSource();
           this.dataSource.data = x;
-          console.log(this.dataSource.data);
+          
+
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          
+          
+          console.log(x);
+          
         },
         error => {
           console.log('There was an error while retrieving Usuarios!' + error);

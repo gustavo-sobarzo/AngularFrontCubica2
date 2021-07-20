@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
-import { AuthResponse, Usuario } from '../interfaces/cliente.interface';
-import { of } from 'rxjs';
+import { AuthResponse, Servicio, Usuario, TipoPago } from '../interfaces/cliente.interface';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,14 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
+  /* retorna petición get donde se obtiene la lista de servicio */
+  getServicio(): Observable<Servicio[]>{
+    return this.http.get<Servicio[]>(`${this.baseUrl}/Project_Cubic/public/api/indexSE`);
+  }
 
+  getTipoPago(): Observable<TipoPago[]>{
+    return this.http.get<TipoPago[]>(`${this.baseUrl}/Project_Cubic/public/api/indexTG`);
+  }
 
   getAdmin() {
     return this.http.get('')
@@ -54,6 +61,19 @@ export class ClienteService {
               );
   }
 
+  arriendoCrear(vencido:number, activo:number, servicio_idServicio:number,
+    tipopago_IdTipoPago:number, users_id:number){
+     const url = `${this.baseUrl}/Project_Cubic/public/api/crearAr`;
+     const body = { vencido, activo, servicio_idServicio, tipopago_IdTipoPago, users_id };
+     return this.http.post<AuthResponse>(url, body)
+       .pipe(
+         tap(resp => {
+           console.log(resp)
+         }),
+         catchError(err => of(err))
+       );
+}
+
   login(email: string, password: string) {
 
     const url = `${this.baseUrl}/Project_Cubic/public/api/login`;
@@ -63,11 +83,14 @@ export class ClienteService {
         tap(resp => {
           if (resp.token) {
             
-            localStorage.setItem('token',  'Bearer ' + resp.token);
+            localStorage.setItem('Authorization',  'Bearer ' + resp.token);
             this._usuario = {
               email
             }
+            
           }
+          localStorage.setItem('email', email);
+          
         }),
         map(resp => resp.token),
         catchError(err => of(err))
@@ -75,11 +98,30 @@ export class ClienteService {
   }
   
 
-  validarToken(){
-      const url = `${this.baseUrl}/Project_Cubic/public/api/user`;
-      const headers = new HttpHeaders()
-      .set(('Authorization'),   localStorage.getItem ('token') || '');
-      return this.http.post (url, {headers});
+  validarToken(): Observable<boolean> {
+    const url = `${this.baseUrl}/Project_Cubic/public/api/user`;
+    const headers = new HttpHeaders()
+      .set('Authorization', localStorage.getItem('Authorization') || '');
+    return this.http.get<AuthResponse>(url, { headers })
+      .pipe(
+        map(resp => {
+          
+          this._usuario = {
+            email: resp.email!,
+            
+          }
+          if (localStorage.getItem('Authorization') && resp.tipousuario_idTipoUsuario === 5) {
+            resp.ok = true;
+          }
+          return resp.ok;
+          
+        }),
+        catchError(err => of(false))
+      );
+  }
+
+  logOut() {
+    localStorage.clear();
   }
 
 }

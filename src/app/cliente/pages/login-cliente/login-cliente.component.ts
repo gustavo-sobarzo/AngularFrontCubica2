@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthResponse } from '../../interfaces/cliente.interface';
@@ -14,7 +14,8 @@ import { ClienteService } from '../../services/cliente.service';
 })
 export class LoginClienteComponent  {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+              ) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog);
@@ -35,7 +36,8 @@ export class DialogContentExampleDialog {
 
   constructor(private router: Router,
     private clienteService: ClienteService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private dialogRef:MatDialogRef<DialogContentExampleDialog>) { }
 
     miFormulario: FormGroup = this.fb.group({
       email:    ['', [ Validators.required, Validators.email ]],
@@ -57,11 +59,12 @@ export class DialogContentExampleDialog {
         Swal.fire('Error','Credenciales incorrectas');
       }else{
         this.router.navigateByUrl('cliente/homeCliente');
+        this.dialogRef.close(true);
       }
       
     });
-
+    
   }
 
-
+  
 }

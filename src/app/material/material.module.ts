@@ -14,6 +14,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -36,7 +38,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatDialogModule,
         MatCheckboxModule,
         MatTableExporterModule,
-        MatGridListModule
+        MatGridListModule,
+        MatRadioModule,
+        MatSelectModule
         
     ]
 })

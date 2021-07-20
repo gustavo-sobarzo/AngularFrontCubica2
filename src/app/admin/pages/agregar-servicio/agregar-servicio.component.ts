@@ -22,6 +22,9 @@ export class AgregarServicioComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
+
+
+   /*  metodo que utiliza otro metodo del service dependiendo si necesesita crear o modificar */
   guardarServicio() {
 
     if (this.servicio.idServicio) {
@@ -41,6 +44,7 @@ export class AgregarServicioComponent implements OnInit {
 
   }
 
+  
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(

@@ -57,6 +57,10 @@ export class LoginComponent {
       }
       
     });
+    
+    
+    /* this.authService.validarToken()
+    .subscribe(console.log); */
 
   }
 

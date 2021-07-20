@@ -8,6 +8,7 @@ export interface AuthResponse{
     token?: string;
     error?: string;
     ok: boolean;
+    tipousuario_idTipoUsuario?: number;
 }
 
 export interface AuthRegistro {
@@ -20,4 +21,24 @@ export interface AuthRegistro {
     telefono: string;
     fecha_nacimiento: Date;
     tipousuario_idTipoUsuario: number;
+}
+
+export interface Servicio{
+    idServicio: number;
+    nombre: string;
+    descripcion: string;
+    precio: number;
+}
+
+export interface TipoPago{
+    idTipoPago: number;
+    nombre: string;
+}
+
+export interface Arriendo{
+    vencido: number;
+    activo: number;
+    servicio_idServicio: number;
+    tipopago_IdTipoPago: number;
+    users_id: number;
 }
